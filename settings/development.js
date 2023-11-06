@@ -24,7 +24,7 @@ const includesHTMLSettings = {
   basepath: '@file',
 };
 
-const pathHTML = ['./src/html/**/*.html', '!./src/html/components/*.html', '!./src/html/pages/*.html']
+const pathHTML = ['./src/**/*.html', '!./src/components/**/*.html']
 
 const plumberSettings = (title) => {
   return {
@@ -57,7 +57,7 @@ gulp.task('inclideHTML:dev', function(){
 });
 
 gulp.task('scss:dev', function(){
-  return gulp.src('./src/scss/*.scss')
+  return gulp.src('./src/*.scss')
     .pipe(change('./dev/css'))
     .pipe(plumber(plumberSettings('SCSS')))
     .pipe(scssMaps.init())
@@ -71,7 +71,7 @@ gulp.task('scss:dev', function(){
 });
 
 gulp.task('js:dev', function(){
-  return gulp.src('./src/js/*.js')
+  return gulp.src('./src/*.js')
     .pipe(change('./dev/js'))
     .pipe(plumber(plumberSettings('JS')))
     .pipe(babel())
@@ -105,26 +105,16 @@ gulp.task('create-components', function(done) {
     return;
   }
 
-  fs.writeFileSync(`./src/html/components/${name}.html`, '');
-  fs.writeFileSync(`./src/scss/components/_${name}.scss`, '');
-  fs.writeFileSync(`./src/js/components/${name}.js`, '');
-  console.log(`Component ${name} created successfully`);
-  
-  done();
-});
+  const folderPath = `./src/components/${name}`;
 
-gulp.task('create-page', function(done) {
-  const name = argv.name;
-  if (typeof name !== 'string') {
-    console.error('Please provide a name using --name flag');
-    done(new Error('Name not provided'));
-    return;
+  if (!fs.existsSync(folderPath)) {
+    fs.mkdirSync(folderPath);
   }
-
-  fs.writeFileSync(`./src/html/pages/${name}.html`, '');
-  fs.writeFileSync(`./src/scss/pages/_${name}.scss`, '');
-  fs.writeFileSync(`./src/js/pages/${name}.js`, '');
-  console.log(`Page ${name} created successfully`);;
+  
+  fs.writeFileSync(`./src/components/${name}/${name}.html`, '');
+  fs.writeFileSync(`./src/components/${name}/_${name}.scss`, '');
+  fs.writeFileSync(`./src/components/${name}/${name}.js`, '');
+  console.log(`Component ${name} created successfully`);
   
   done();
 });
@@ -139,8 +129,8 @@ gulp.task('server:dev', function(){
 
 gulp.task('watch:dev', function(){
   gulp.watch('./src/**/*.html', gulp.parallel('inclideHTML:dev'));
-  gulp.watch('./src/scss/**/*.scss', gulp.parallel('scss:dev'));
-  gulp.watch('./src/js/**/*.js', gulp.parallel('js:dev'));
+  gulp.watch('./src/**/*.scss', gulp.parallel('scss:dev'));
+  gulp.watch('./src/**/*.js', gulp.parallel('js:dev'));
   gulp.watch('./src/fonts/**/*', gulp.parallel('fonts:dev'));
   gulp.watch('./src/img/**/*', gulp.parallel('images:dev'));
 });

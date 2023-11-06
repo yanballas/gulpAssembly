@@ -1,6 +1,6 @@
 const gulp = require('gulp');
-require('./gulp/development.js');
-require('./gulp/build.js');
+require('./settings/development.js');
+require('./settings/build.js');
 
 gulp.task('default', gulp.series(
   'clean:dev', 

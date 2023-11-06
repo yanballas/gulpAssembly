@@ -27,7 +27,7 @@ const includesHTMLSettings = {
   basepath: '@file',
 };
 
-const pathHTML = ['./src/html/**/*.html', '!./src/html/components/*.html', '!./src/html/pages/*.html'];
+const pathHTML = ['./src/**/*.html', '!./src/components/**/*.html']
 
 const pathZip = ['./build/**', '!./build/build.zip'];
 
@@ -62,7 +62,7 @@ gulp.task('inclideHTML:build', function(){
 });
 
 gulp.task('scss:build', function(){
-  return gulp.src('./src/scss/*.scss')
+  return gulp.src('./src/*.scss')
     .pipe(change('./build/css'))
     .pipe(plumber(plumberSettings('SCSS')))
     .pipe(scssMaps.init())
@@ -77,7 +77,7 @@ gulp.task('scss:build', function(){
 });
 
 gulp.task('js:build', function(){
-  return gulp.src('./src/js/*.js')
+  return gulp.src('./src/*.js')
     .pipe(change('./build/js'))
     .pipe(plumber(plumberSettings('JS')))
     .pipe(babel())

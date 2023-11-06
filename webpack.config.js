@@ -3,7 +3,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 const config = {
   mode: 'production',
   entry: {
-    index: './src/js/main.js'
+    index: './src/main.js'
   },
   output: {
     filename: 'main.js'
