@@ -86,6 +86,12 @@ gulp.task('js:build', function(){
     .pipe(gulp.dest('./build/js'))
 })
 
+// Подключение jquery
+// gulp.task('copy-jquery', function() {
+//   return gulp.src('src/base/libs/jquery-3.7.1.min.js')
+//     .pipe(gulp.dest('./build/js'));
+// });
+
 gulp.task('images:build', function(){
   return gulp.src('./src/img/**/*')
     .pipe(change('./build/img/'))
@@ -101,6 +107,12 @@ gulp.task('fonts:build', function(){
   return gulp.src('./src/fonts/**/*')
     .pipe(change('./build/fonts/'))
     .pipe(gulp.dest('./build/fonts/'))
+});
+
+gulp.task('favicon:build', function(){
+  return gulp.src('./src/favicon/**/*')
+    .pipe(change('./build/favicon/'))
+    .pipe(gulp.dest('./build/favicon/'))
 });
 
 gulp.task('server:build', function(){

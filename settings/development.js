@@ -80,6 +80,12 @@ gulp.task('js:dev', function(){
     .pipe(gulp.dest('./dev/js'))
 })
 
+// Подключение jquery
+// gulp.task('copy-jquery', function() {
+//   return gulp.src('src/base/libs/jquery-3.7.1.min.js')
+//     .pipe(gulp.dest('./dev/js'));
+// });
+
 gulp.task('images:dev', function(){
   return gulp.src('./src/img/**/*')
     .pipe(change('./dev/img/'))
@@ -95,6 +101,12 @@ gulp.task('fonts:dev', function(){
   return gulp.src('./src/fonts/**/*')
     .pipe(change('./dev/fonts/'))
     .pipe(gulp.dest('./dev/fonts/'))
+});
+
+gulp.task('favicon:dev', function(){
+  return gulp.src('./src/favicon/**/*')
+    .pipe(change('./dev/favicon/'))
+    .pipe(gulp.dest('./dev/favicon/'))
 });
 
 gulp.task('create-components', function(done) {
