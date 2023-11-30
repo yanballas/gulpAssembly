@@ -2,7 +2,6 @@
   "devDependencies": {
     "@babel/core": "^7.23.0",
     "@babel/preset-env": "^7.22.20",
-    "animejs": "^3.2.1",
     "css-loader": "^6.8.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
@@ -27,12 +26,9 @@
     "gulp-webp-html": "^1.0.2",
     "gulp-zip": "^5.1.0",
     "htmlhint": "^1.1.4",
-    "overlayscrollbars": "^2.4.3",
     "sass": "^1.68.0",
     "style-loader": "^3.3.3",
-    "swiper": "^10.3.1",
     "terser-webpack-plugin": "^5.3.9",
-    "tippy.js": "^6.3.7",
     "webpack-stream": "^7.0.0",
     "yargs": "^17.7.2"
   },
@@ -43,5 +39,12 @@
   },
   "browserslist": [
     "last 5 versions"
-  ]
+  ],
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "aos": "^2.3.4",
+    "tippy.js": "^6.3.7",
+    "swiper": "^10.3.1",
+    "overlayscrollbars": "^2.4.3"
+  }
 }
