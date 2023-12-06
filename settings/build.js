@@ -86,12 +86,6 @@ gulp.task('js:build', function(){
     .pipe(gulp.dest('./build/js'))
 })
 
-// Подключение jquery
-// gulp.task('copy-jquery', function() {
-//   return gulp.src('src/base/libs/jquery-3.7.1.min.js')
-//     .pipe(gulp.dest('./build/js'));
-// });
-
 gulp.task('images:build', function(){
   return gulp.src('./src/img/**/*')
     .pipe(change('./build/img/'))
