@@ -1,14 +1,11 @@
-html, body {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-}
-
 footer {
 	margin-top: auto;
 }
 
 .tmpl-container {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 	position: relative;
 	box-sizing: border-box;
 	margin-left: auto;

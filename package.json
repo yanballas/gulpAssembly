@@ -1,4 +1,13 @@
 {
+  "name": "gulp-assembly",
+  "scripts": {
+    "dev": "gulp default",
+    "build": "gulp build",
+    "dev:clean": "gulp clean:dev",
+    "build:clean": "gulp clean:build",
+    "create-components": "gulp create-components --name"
+
+  },
   "devDependencies": {
     "@babel/core": "^7.23.0",
     "@babel/preset-env": "^7.22.20",
@@ -41,10 +50,9 @@
     "last 5 versions"
   ],
   "dependencies": {
-    "animejs": "^3.2.1",
     "aos": "^2.3.4",
-    "tippy.js": "^6.3.7",
+    "overlayscrollbars": "^2.4.3",
     "swiper": "^10.3.1",
-    "overlayscrollbars": "^2.4.3"
+    "tippy.js": "^6.3.7"
   }
 }

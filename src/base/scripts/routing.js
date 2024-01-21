@@ -22,4 +22,4 @@ const routingInit = () => {
   });
 }
 
-export {routingInit}
+export { routingInit }

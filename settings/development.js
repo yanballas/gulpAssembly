@@ -119,7 +119,7 @@ gulp.task('create-components', function(done) {
   
   fs.writeFileSync(`./src/components/${name}/${name}.html`, '');
   fs.writeFileSync(`./src/components/${name}/_${name}.scss`, '');
-  fs.writeFileSync(`./src/components/${name}/${name}.js`, '');
+  fs.writeFileSync(`./src/components/${name}/index.js`, '');
   console.log(`Component ${name} created successfully`);
   
   done();

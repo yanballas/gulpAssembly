@@ -3,7 +3,7 @@
 ### Основные команды
 
 gulp \ запуск проекта в режиме development
-gulp \ сборка проекта в режим production с минификацией, zip-архивацией
+gulp build \ сборка проекта в режим production с минификацией, zip-архивацией
 gulp create-components --name [название компонента] \ создает html, scss, js файлы с именем компонента в соотвествующих папках
 gulp clean:dev \ удаление папки dev
 gulp clean:build \ удаление папки build
