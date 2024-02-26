@@ -24,7 +24,9 @@ const includesHTMLSettings = {
   basepath: '@file',
 };
 
-const pathHTML = ['./src/**/*.html', '!./src/components/**/*.html']
+const pathHTML = ['./src/**/*.html', '!./src/components/**/*.html', '!./src/base/**/*.html'];
+const pathSCSS = ['./src/*.scss', '!./src/base/**/*.scss'];
+const pathJS = ['./src/*.js', '!./src/base/**/*.js'];
 
 const plumberSettings = (title) => {
   return {
@@ -57,7 +59,7 @@ gulp.task('inclideHTML:dev', function(){
 });
 
 gulp.task('scss:dev', function(){
-  return gulp.src('./src/*.scss')
+  return gulp.src(pathSCSS)
     .pipe(change('./dev/css'))
     .pipe(plumber(plumberSettings('SCSS')))
     .pipe(scssMaps.init())
@@ -71,10 +73,10 @@ gulp.task('scss:dev', function(){
 });
 
 gulp.task('js:dev', function(){
-  return gulp.src('./src/*.js')
+  return gulp.src(pathJS)
     .pipe(change('./dev/js'))
     .pipe(plumber(plumberSettings('JS')))
-    .pipe(babel())
+    // .pipe(babel()) включить если необходима транспиляция в dev режиме
     .pipe(webpack(require('./../webpack.config.js')))
     .pipe(prettier())
     .pipe(gulp.dest('./dev/js'))
